@@ -28,14 +28,14 @@ namespace FolhaPag.Migrations
                     b.Property<int>("FuncionarioId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("ImpostoFgts")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("ImpostoFGTS")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("ImpostoInss")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("ImpostoINSS")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("ImpostoIrrf")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("ImpostoIRRF")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Mes")
                         .HasColumnType("INTEGER");
@@ -43,11 +43,11 @@ namespace FolhaPag.Migrations
                     b.Property<int>("Quantidade")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("SalarioBruto")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("SalarioBruto")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("SalarioLiquido")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("SalarioLiquido")
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("Valor")
                         .HasColumnType("TEXT");

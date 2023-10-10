@@ -34,12 +34,12 @@ namespace FolhaPag.Migrations
                     Quantidade = table.Column<int>(type: "INTEGER", nullable: false),
                     Mes = table.Column<int>(type: "INTEGER", nullable: false),
                     Ano = table.Column<int>(type: "INTEGER", nullable: false),
-                    SalarioBruto = table.Column<double>(type: "REAL", nullable: false),
-                    ImpostoIrrf = table.Column<double>(type: "REAL", nullable: false),
-                    ImpostoInss = table.Column<double>(type: "REAL", nullable: false),
-                    ImpostoFgts = table.Column<double>(type: "REAL", nullable: false),
-                    SalarioLiquido = table.Column<double>(type: "REAL", nullable: false),
-                    FuncionarioId = table.Column<int>(type: "INTEGER", nullable: false)
+                    FuncionarioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    SalarioBruto = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ImpostoIRRF = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ImpostoINSS = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ImpostoFGTS = table.Column<decimal>(type: "TEXT", nullable: false),
+                    SalarioLiquido = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
