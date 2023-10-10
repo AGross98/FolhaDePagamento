@@ -21,8 +21,9 @@ namespace FolhaPag.Controllers
         }
 
 // POST: api/folha/cadastrar
+// POST: api/folha/cadastrar
 [HttpPost("cadastrar")]
-public IActionResult CadastrarFolha([FromBody] Folha folhaInput)
+public IActionResult CadastrarFolha([FromBody] FolhaInput folhaInput)
 {
     // Verifique se o funcionário com o ID especificado existe no banco de dados
     var funcionario = _ctx.Funcionarios.SingleOrDefault(f => f.FuncionarioId == folhaInput.FuncionarioId);
@@ -66,19 +67,21 @@ public IActionResult CadastrarFolha([FromBody] Folha folhaInput)
     _ctx.Folhas.Add(novaFolha);
     _ctx.SaveChanges();
 
-    // Crie um objeto anônimo com as informações desejadas para a resposta
-    var resposta = new
-    {
-        valor = novaFolha.Valor,
-        quantidade = novaFolha.Quantidade,
-        mes = novaFolha.Mes,
-        ano = novaFolha.Ano,
-        funcionarioId = novaFolha.FuncionarioId
-    };
-
-    // Retorne um código de status 201 (Created) com as informações da nova folha
-    return Created("", resposta);
+    // Retorne um código de status 201 (Created) com os detalhes da nova folha
+    return CreatedAtRoute(new { FolhaId = novaFolha.FolhaId }, novaFolha);
 }
+
+
+public class FolhaInput
+{
+    public decimal Valor { get; set; }
+    public int Quantidade { get; set; }
+    public int Mes { get; set; }
+    public int Ano { get; set; }
+    public int FuncionarioId { get; set; }
+}
+
+
 // Função para calcular o imposto de renda (IRRF) com base na tabela
 private decimal CalcularImpostoIRRF(decimal salarioBruto)
 {
