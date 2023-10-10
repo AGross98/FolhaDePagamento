@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FolhaPag.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    [Migration("20231010002200_teste")]
+    [Migration("20231010004338_teste")]
     partial class teste
     {
         /// <inheritdoc />

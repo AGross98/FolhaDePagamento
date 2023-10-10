@@ -135,5 +135,35 @@ private decimal CalcularImpostoINSS(decimal salarioBruto)
 
     return impostoInss;
 }
+// GET: api/folha/listar
+[HttpGet("listar")]
+public IActionResult ListarFolhas()
+{
+    var folhas = _ctx.Folhas.Include(f => f.Funcionario).ToList();
+
+    var resposta = folhas.Select(folha => new
+    {
+        folha.FolhaId,
+        folha.Valor,
+        folha.Quantidade,
+        folha.Mes,
+        folha.Ano,
+        folha.FuncionarioId,
+        folha.SalarioBruto,
+        folha.ImpostoIRRF,
+        folha.ImpostoINSS,
+        folha.ImpostoFGTS,
+        folha.SalarioLiquido,
+        funcionario = new
+        {
+            folha.Funcionario.FuncionarioId,
+            folha.Funcionario.Nome,
+            folha.Funcionario.CPF
+        }
+    });
+
+    return Ok(resposta);
+}
     }
+    
 }
